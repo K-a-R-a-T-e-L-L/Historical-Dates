@@ -1,0 +1,168 @@
+@keyframes AppereanceBlock {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.container {
+    animation: 0.5s AppereanceBlock ease;
+    position: relative;
+    top: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 40px;
+    height: 400px;
+    padding-left: 20px;
+}
+
+.swiper {
+    width: calc(100% - 200px);
+    height: 140px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .swiper__text_block {
+        height: 135px;
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        cursor: grab;
+
+        &:active {
+            cursor: grabbing;
+        }
+
+        .text_block__year {
+            color: #3877EE;
+            font-size: 25px;
+            font-weight: 700;
+            color: #3877EE;
+            font-family: 'geistBebasNeue';
+        }
+
+        .text_block__text {
+            color: #42567A;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 30px;
+            font-family: sans-serif;
+        }
+    }
+
+    @mixin ButtonsStyles ($side) {
+        position: absolute;
+        top: 50%;
+        #{$side}: -7%;
+        transform: translateY(-50%);
+        z-index: 10;
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 0 15px 10px #3877EE1A;
+        background-size: 9px 15px;
+        background-repeat: no-repeat;
+        background-position: center center;
+
+        &:hover {
+            border: 1px solid #3878ee24
+        }
+
+        &:active {
+            border-width: 2px
+        }
+    }
+
+    .swiper__custom_prev {
+        @include ButtonsStyles(left);
+        background-image: url(../../../public/images/leftSwiper.png);
+    }
+
+    .swiper__custom {
+        @include ButtonsStyles(right);
+        background-image: url(../../../public/images/rightSwiper.png);
+    }
+}
+
+.line {
+    display: none;
+}
+
+@media (width < 500px) {
+
+    .swiper-slide .swiper-slide-next{
+        opacity: 0.3;
+    }
+
+    .container {
+        animation: 0.5s AppereanceBlock ease;
+        position: relative;
+        top: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        row-gap: 40px;
+        height: 400px;
+        padding-left: 20px;
+    }
+
+    .title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #42567A;
+        animation: 1.5s AppereanceTitle ease;
+        animation-delay: 1s;
+        animation-fill-mode: backwards;
+    }
+
+    .line {
+        width: calc(100% - 40px);
+        display: block;
+        color: #C7CDD9;
+    }
+
+    .swiper {
+        width: calc(100% - 20px);
+        height: 400px;
+        display: flex;
+        align-items: start;
+
+        .swiper__text_block {
+            width: 200px;
+            row-gap: 20px;
+
+            .text_block__year {
+                font-size: 19px;
+            }
+
+            .text_block__text {
+                font-size: 14px;
+            }
+        }
+
+        .swiper__custom_prev {
+            display: none !important;
+        }
+
+        .swiper__custom {
+            display: none !important;
+        }
+
+        .swiper-pagination {
+            background-color: rgb(255, 0, 0) !important;
+            bottom: 0;
+        }
+    }
+}

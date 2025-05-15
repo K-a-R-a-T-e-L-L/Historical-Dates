@@ -1,0 +1,72 @@
+.main {
+    width: 99%;
+    max-width: 1440px;
+    height: 99%;
+    max-height: 1080px;
+    background-image: url(../../../public/images/backg.png);
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+
+    .main__header {
+        font-size: 56px;
+        font-family: sans-serif;
+        position: relative;
+        top: 5%;
+        left: 80px;
+        font-weight: 700;
+        width: 400px;
+        color: #42567A;
+
+        &::after {
+            content: "";
+            height: 100%;
+            width: 5px;
+            position: absolute;
+            left: -80px;
+            top: 0;
+            background: linear-gradient(#3877EE, #EF5DA8);
+        }
+    }
+
+    .main__years {
+        font-size: 200px;
+        font-family: sans-serif;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        font-weight: 700;
+        transform: translate(-50%, -50%);
+
+        .years__from {
+            position: relative;
+            left: -5%;
+            color: #3877EE;
+        }
+
+        .years__to {
+            position: relative;
+            right: -5%;
+            color: #EF5DA8;
+        }
+    }
+}
+
+@media (width < 500px) {
+
+    .main__header{
+        font-size: 20px !important;
+        width: 150px !important;
+        left: 20px !important;
+
+        &::after{
+            display: none;
+        }
+    }
+
+    .main__years{
+        font-size: 56px !important;
+        top: 165px !important;
+    }
+}

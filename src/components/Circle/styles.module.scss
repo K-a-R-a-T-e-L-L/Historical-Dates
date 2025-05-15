@@ -1,0 +1,108 @@
+.circle {
+    width: 30%;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transition: transform 1s ease-in-out;
+    border: 2px solid #42567a20;
+
+    @keyframes Appereace {
+        0% {
+            transform: scale(0);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .circle__points {
+        max-width: calc(var(--radius) * 2);
+        min-width: calc(var(--radius) * 2);
+        max-height: calc(var(--radius) * 2);
+        min-height: calc(var(--radius) * 2);
+        aspect-ratio: 1/1;
+        position: absolute;
+        background-color: #42567A;
+        border-radius: 100%;
+        border: 1px solid #42567A;
+        cursor: pointer;
+
+
+        &:hover {
+            &::after {
+                content: attr(data-index);
+                max-width: calc(var(--radius) * 7);
+                min-width: calc(var(--radius) * 7);
+                max-height: calc(var(--radius) * 7);
+                min-height: calc(var(--radius) * 7);
+                position: absolute;
+                left: calc(var(--radius) * -3);
+                top: calc(var(--radius) * -3);
+                border: 2px solid #42567a34;
+                border-radius: 100%;
+                display: grid;
+                place-items: center;
+                background-color: white;
+                font-weight: 100;
+                font-family: serif;
+                animation: 0.5s Appereace ease;
+            }
+        }
+    }
+
+    .circle__points_active::after {
+        content: attr(data-index);
+        max-width: calc(var(--radius) * 7);
+        min-width: calc(var(--radius) * 7);
+        max-height: calc(var(--radius) * 7);
+        min-height: calc(var(--radius) * 7);
+        position: absolute;
+        left: calc(var(--radius) * -3);
+        top: calc(var(--radius) * -3);
+        border: 2px solid #42567a34;
+        border-radius: 100%;
+        display: grid;
+        place-items: center;
+        background-color: white;
+        font-weight: 100;
+        font-family: serif;
+        animation: 0.3s Appereace ease;
+    }
+
+    @keyframes AppereanceTitle {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .circle__points_active {
+        position: relative;
+    }
+
+    .circle__points_active::before {
+        content: attr(data-title);
+        position: absolute;
+        right: -1500%;
+        top: -10px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #42567A;
+        animation: 0.5s AppereanceTitle ease;
+        animation-delay: 1s;
+        animation-fill-mode: backwards;
+    }
+}
+
+@media (width < 500px) {
+    .circle {
+        display: none;
+    }
+}

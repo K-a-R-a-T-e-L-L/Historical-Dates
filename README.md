@@ -26,12 +26,11 @@ SCSS
 1. Клонировать репозиторий:
 ```bash
 git clone https://github.com/K-a-R-a-T-e-L-L/Historical-Dates
-cd Historical-Dates
 ```
 
 2. Установить зависимости:
 ```bash
-npm install
+cd Historical-Dates && npm install
 ```
 
 3. Запуск в режиме разработки:

@@ -53,6 +53,12 @@
     }
 }
 
+@media (width < 1200px) {
+    .main__years {
+        font-size: 15vw !important;
+    }
+}
+
 @media (width < 500px) {
 
     .main__header{
